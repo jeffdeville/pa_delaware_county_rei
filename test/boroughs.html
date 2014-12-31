@@ -1,0 +1,551 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<HEAD>
+<LINK REL="SHORTCUT ICON" HREF="http://w01.co.delaware.pa.us/pa/icon/CntySeal.ico">
+<link rel="stylesheet" type="text/css" href="http://w01.co.delaware.pa.us/pa/styles/style.css"  media="screen"/>
+<link rel="stylesheet" type="text/css" href="http://w01.co.delaware.pa.us/pa/styles/printstyle.css"  media="print"/>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+
+<TITLE>
+Real Estate and Tax Records Address Query
+
+</TITLE>
+
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+    if (selObj.options[selObj.selectedIndex].value!="Departments...")
+       { if (selObj.options[selObj.selectedIndex].value!="Services...")
+         {
+         eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'")
+         if (restore) selObj.selectedIndex=0
+         }
+       }
+}
+
+function streetsgo(txt)
+{
+var x=document.getElementById(txt)
+x.click();
+
+}
+
+function streetslist(txt)
+{
+var x=document.getElementById(txt)
+x.selectedIndex=0;
+
+}
+
+function killenter(e)
+{ 
+
+var keynum
+if(window.event) // IE
+{
+keynum = e.keyCode
+}
+else if(e.which) // Netscape/Firefox/Opera
+{
+keynum = e.which
+}
+if (keynum == 13)
+{  
+    return false
+}
+else
+{
+    return true
+}
+
+
+}
+
+function launchCenter(url, name, height, width) {
+ var str = "height=" + height + ",innerHeight=" + height;
+ str += ",width=" + width + ",innerWidth=" + width;
+  if (window.screen) {
+    height = screen.availHeight * .95
+    width = screen.availWidth * .95
+    if (width > 780) {width = 780}
+    str = "height=" + height + ",innerHeight=" + height;
+    str += ",width=" + width + ",innerWidth=" + width;
+    var ah = screen.availHeight - 30;
+    var aw = screen.availWidth;
+
+    var xc = (aw - width) / 2;
+    var yc = (ah - height) / 2;
+
+    str += ",left=" + xc + ",screenX=" + xc;
+    str += ",top=" + yc + ",screenY=" + yc;
+    str += ",scrollbars=yes,resizable=yes";
+  }
+  return window.open(url, name, str);
+
+}
+
+function launchPrint(url, height, width) {
+ var str = "height=" + height + ",innerHeight=" + height;
+ str += ",width=" + width + ",innerWidth=" + width;
+  if (window.screen) {
+    height = screen.availHeight * .95
+    width = screen.availWidth * .95
+    if (width > 750) {width = 750}
+    str = "height=" + height + ",innerHeight=" + height;
+    str += ",width=" + width + ",innerWidth=" + width;
+    var ah = screen.availHeight - 30;
+    var aw = screen.availWidth - 10;
+
+    var xc = (aw - width) / 2;
+    var yc = (ah - height) / 2;
+
+    str += ",left=" + xc + ",screenX=" + xc;
+    str += ",top=" + yc + ",screenY=" + yc;
+    str += ",scrollbars=yes,resizable=yes";
+  }
+  window.open(url,'_blank',str);
+
+}
+
+
+function CSScriptInit() {
+
+
+
+}
+
+function setfocus()
+{
+document.forms[0].Folio.focus()
+document.forms[0].Folio.select()
+}
+function setgo()
+{
+//document.forms[0].realfolio.focus()
+}
+
+
+-->
+</script>
+
+
+</HEAD>
+
+
+<body bgcolor="#ffffff" onload="CSScriptInit();" onkeydown="return killenter(event);">
+<div id="delcobanner" name="delcobanner">
+<a name="top"></a>
+<MAP NAME="TopNavMap">
+	<AREA SHAPE="RECT" COORDS="0,0,50,29" HREF="http://www.co.delaware.pa.us/testdesign/index.html" TITLE="Return to Main Delaware County Web Page">
+	<AREA SHAPE="RECT" COORDS="120,0,200,29" HREF="http://www.co.delaware.pa.us/email.html" TITLE="Contact Us via Email">
+<MAP>
+<map name="Map" id="Map">
+	<area title="Main Web Page - Home" shape="rect" coords="4,5,41,20" href="http://www.co.delaware.pa.us" alt="Main Web Page - Home" />
+	<area title="Search Our Site" shape="rect" coords="48,3,90,21" href="http://www.co.delaware.pa.us/search.html" alt="Search Our Site" />
+	<area title="Contact Us" shape="rect" coords="100,3,163,20" href="http://www.co.delaware.pa.us/email.html" alt="Contact Us" />
+</map>
+<center>
+<table width=911 border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td height="114" colspan="13" align="center" valign="top" bgcolor="#003399"><div align="center"><img src="http://www.co.delaware.pa.us/images/newnavbarnew.jpg" width="910" height="112" alt="Mast Head Graphic" /></div></td><td width="1"></td>
+  </tr>
+  <tr>
+    <td width="170" height="25" valign="top" bgcolor="#660032"><div align="center"><img src="http://www.co.delaware.pa.us/images/threewords2.jpg" alt="Nav bar" width="170" height="25" border="0" usemap="#Map" /></div></td>
+    <td colspan="12" align="center" valign="middle" bgcolor="#660032"><div align="center"><span class="text-10px text-10px">
+      <select name="departments" class="stdfontsmaller" id="departments" onchange="MM_jumpMenu('parent',this,0)">
+        <option>Departments...</option>
+        <option value="http://www.co.delaware.pa.us/depts/admserv.html">Administrative Services</option>
+        <option value="http://www.co.delaware.pa.us/depts/archives.html">Archives and Records Mgt</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/assessappeal.html">Assessment Appeals</option>
+        <option value="http://www.co.delaware.pa.us/courts/pretrailbail.html">Bail</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/boa.html">Board of Assessments</option>
+        <option value="http://www.co.delaware.pa.us/depts/budget.html">Budget Management</option>
+        <option value="http://www.co.delaware.pa.us/depts/election.html">Bureau of Elections</option>
+        <option value="http://www.co.delaware.pa.us/depts/buildings.html">Building &amp; Maintenance</option>
+        <option value="http://www.co.delaware.pa.us/purchasing/index.html">Central Purchasing</option>
+        <option value="http://www.co.delaware.pa.us/courts/commcorrections.html">Community Corrections</option>
+        <option value="http://www.co.delaware.pa.us/consumeraffairs/index.html">Consumer Affairs</option>
+        <option value="http://www.co.delaware.pa.us/conservation/index.html">Conservation District</option>
+        <option value="http://www.co.delaware.pa.us/depts/controller.html">Controller</option>
+        <option value="http://www.co.delaware.pa.us/depts/cosa.html">COSA</option>
+        <option value="http://www.co.delaware.pa.us/depts/clerk.html">County Clerk</option>
+        <option value="http://www.co.delaware.pa.us/courts/cjrelateddepts.html">Court Related Departments</option>
+        <option value="http://www.co.delaware.pa.us/districtattorney/cid.html">Criminal Investigation Division</option>
+        <option value="http://www.co.delaware.pa.us/depts/data.html">Data Processing</option>
+        <option value="http://www.co.delaware.pa.us/districtattorney/index.html">District Attorney</option>
+        <option value="http://www.co.delaware.pa.us/domesticrelations/index.html">Domestic Relations</option>
+        <option value="http://www.co.delaware.pa.us/depts/election.html">Election Bureau</option>
+        <option value="http://www.co.delaware.pa.us/depts/emergency.html">Emergency Services</option>
+        <option value="http://www.co.delaware.pa.us/depts/oet.html">Employment &amp; Training</option>
+        <option value="http://www.co.delaware.pa.us/depts/publicworks.html">Engineer, Public Works</option>
+        <option value="http://www.co.delaware.pa.us/director.html">Executive Director</option>
+        <option value="http://www.fairacres.org/">Fair Acres Geriatric</option>
+        <option value="http://www.co.delaware.pa.us/hcd/index.html">Housing &amp; Community Development</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/index.html">Human Services</option>
+        <option value="http://www.co.delaware.pa.us/intercommunity/index.html">Intercommunity Health</option>
+        <option value="http://www.co.delaware.pa.us/ojs/index.html">Judicial Support</option>
+        <option value="http://www.co.delaware.pa.us/courts/jurorguide/index.html">Jury Information</option>
+        <option value="http://www.co.delaware.pa.us/courts/juveniledetention.html">Juvenile Detention Center</option>
+        <option value="http://www.co.delaware.pa.us/courts/audiovisual.html">Legal Audio Visual</option>
+        <option value="http://www.delcolibraries.org/">Library Services</option>
+        <option value="http://www.co.delaware.pa.us/depts/buildings.html">Maintenance (Building)</option>
+        <option value="http://www.co.delaware.pa.us/ome/index.html">Medical Examiner</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/obh/behavhealth.html">Mental Health</option>
+        <option value="http://www.co.delaware.pa.us/depts/mvm.html">Motor Vehicle Management</option>
+        <option value="http://www.co.delaware.pa.us/newsreleases/index.html">News Releases</option>
+        <option value="http://www.co.delaware.pa.us/registerofwills/index.html">Orphans Court</option>
+        <option value="http://www.co.delaware.pa.us/parkpolice/index.html">Park Police</option>
+        <option value="http://www.co.delaware.pa.us/depts/parks.html">Parks &amp; Recreation</option>
+        <option value="http://www.co.delaware.pa.us/depts/personnel.html">Personnel/Risk Management</option>
+        <option value="http://www.co.delaware.pa.us/planning/">Planning</option>
+        <option value="http://www.co.delaware.pa.us/depts/prison.html">Prison</option>
+        <option value="http://www.co.delaware.pa.us/newsreleases/index.html">Press Releases</option>
+        <option value="http://www.co.delaware.pa.us/depts/defender.html">Public Defender</option>
+        <option value="http://www.co.delaware.pa.us/newsreleases/index.html">Public Relations</option>
+        <option value="http://www.co.delaware.pa.us/purchasing/index.html">Purchasining, Central</option>
+        <option value="http://www.co.delaware.pa.us/depts/recorder.html">Recorder of Deeds</option>
+        <option value="http://www.co.delaware.pa.us/depts/archives.html">Records Mgnt, Archives</option>
+        <option value="http://www.co.delaware.pa.us/recycle/index.html">Recycling</option>
+        <option value="http://www.co.delaware.pa.us/intercommunity/index.html">Regional Emergency Medical</option>
+        <option value="http://www.co.delaware.pa.us/registerofwills/index.html">Register of Wills</option>
+        <option value="http://www.co.delaware.pa.us/depts/se.html">Rose Tree Park Summer Fest</option>
+        <option value="http://www.co.delaware.pa.us/sheriff/index.html">Sheriff</option>
+        <option value="http://www.co.delaware.pa.us/SWA/index.html">Solid Waste Authority</option>
+        <option value="http://www.co.delaware.pa.us/depts/se.html">Special Events</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/index.html">Taxes</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/index.html">Treasurer</option>
+        <option value="http://www.co.delaware.pa.us/depts/veterans.html">Veterns Affairs</option>
+        <option value="http://www.co.delaware.pa.us/depts/voting.html">Voter Registration</option>
+        <option value="http://www.co.delaware.pa.us/depts/voting.html">Voting Machines</option>
+        <option value="http://www.co.delaware.pa.us/depts/weatherization.html">Weatherization Program</option>
+      </select>
+      <select name="services" class="stdfontsmaller" id="services" onchange="MM_jumpMenu('parent',this,0)">
+        <option>Services...</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/index.html">Behavioral Health</option>
+        <option value="http://www.co.delaware.pa.us/census/index.html">Census Data - 2000</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/childcare.html">Child Care Information</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/childyouth.html">Children &amp; Youth Services</option>
+        <option value="http://www.co.delaware.pa.us/depts/community.html">Community Action Agency</option>
+        <option value="http://www.co.delaware.pa.us/depts/cert.html">CERT</option>
+        <option value="http://www.delcopa.org/">Commerce Center</option>
+        <option value="http://www.co.delaware.pa.us/depts/cosa.html">COSA</option>
+        <option value="http://www.co.delaware.pa.us/depts/recorder.html">Deeds, Recorder of</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/dog.html">Dog License</option>
+        <option value="http://www.co.delaware.pa.us/intercommunity/classes.html">EMS Classes</option>
+        <option value="http://www.co.delaware.pa.us/depts/oet.html">Employment and Training</option>
+        <option value="http://www.co.delaware.pa.us/ezpay/index.html">E-Z Pay</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/license.html">Fishing License</option>
+        <option value="http://www.co.delaware.pa.us/depts/weatherization.html">Home Weatherization</option>
+        <option value="http://www.co.delaware.pa.us/recycle/index.html">Household Hazardous Waste</option>
+        <option value="http://www.co.delaware.pa.us/hcd/index.html">Housing Rehabilitation </option>
+        <option value="http://www.co.delaware.pa.us/treasurer/license.html">Hunting License</option>
+        <option value="http://www.co.delaware.pa.us/ojs/index.html">Judicial Support</option>
+        <option value="http://www.co.delaware.pa.us/judicalsale/index.html">Judicial Sale</option>
+        <option value="http://www.co.delaware.pa.us/courts/lawlibrary.html">Law Library</option>
+        <option value="http://www.co.delaware.pa.us/treasurer/license.html">Licenses</option>
+        <option value="http://www.co.delaware.pa.us/registerofwills/marriage.html">Marriage Licenses</option>
+        <option value="http://www.co.delaware.pa.us/map.html">Maps</option>
+        <option value="http://www.co.delaware.pa.us/humanservices/mret.html">Mental Retardation</option>
+        <option value="http://www.co.delaware.pa.us/openrecords/">Open Records Request</option>
+        <option value="http://www.co.delaware.pa.us/ojs/index.html">Passports</option>
+        <option value="http://www.co.delaware.pa.us/judicalsale/upsetpricesale.html">Property Upset Sale</option>
+        <option value="http://www.co.delaware.pa.us/sheriff/realestate.html">Property Sheriff Sale</option>
+        <option value="http://www.co.delaware.pa.us/pfa/index.html">Protection from Abuse</option>
+        <option value="http://w01.co.delaware.pa.us/pa/publicaccess.asp">Public Access</option>
+        <option value="http://www.co.delaware.pa.us/recycle/index.html">Recycling</option>
+        <option value="http://www.co.delaware.pa.us/registerofwills/index.html">Register of Wills</option>
+        <option value="http://www.co.delaware.pa.us/judicalsale/repossale.html">Repository Sale Info</option>
+        <option value="http://www.co.delaware.pa.us/openrecords/">Right to Know Request</option>
+        <option value="http://www.co.delaware.pa.us/depts/rosetree.html">Rose Tree Park</option>
+        <option value="http://www.co.delaware.pa.us/depts/cosa.html">Services for the Aging</option>
+        <option value="http://www.co.delaware.pa.us/sheriff/realestate.html">Sheriff Sale</option>
+        <option value="http://www.co.delaware.pa.us/summer/index.html">Summer Festival</option>
+        <option value="http://www.co.delaware.pa.us/domesticrelations/index.html">Support Enforcement</option>
+        <option value="http://www.tobaccofreedelco.com/">Tobacco Free</option>
+        <option value="http://www.co.delaware.pa.us/judicalsale/upsetpricesale.html">Upset Sale</option>
+        <option value="http://www.co.delaware.pa.us/registerofwills/index.html">Wills, Register of </option>
+        <option value="http://www.co.delaware.pa.us/womencom/index.html">Women's Commission</option>
+        <option value="http://www.co.delaware.pa.us/depts/oet.html">Workforce Development</option>
+      </select>
+    </span></div></td>
+  </tr>
+</table>
+</div>
+
+
+</center>
+
+
+<FORM action='publicaccess.asp' method='get'>
+<center>
+<h2>Delaware County Real Estate Parcels &amp; Tax Records System<br>and Homestead Status</h2>
+<center><table  border='0' cellspacing='0' cellpadding='4'>
+	<tr>
+		<td  align='left'><FONT color='mediumblue' size=3><B>
+			Search by ADDRESS for a list of properties
+		</B></FONT></td>
+		<td  align='left'>
+                  <select name="municipality" onchange="streetsgo('indist');">
+                     <option value = "01">Aldan Borough</option>
+                     <option value = "02">Aston Township</option>
+                     <option value = "03">Bethel Township</option>
+                     <option value = "04">Birmingham Township</option>
+                     <option value = "05">Brookhaven Borough</option>
+                     <option value = "50">Chadds Ford Township</option>
+                     <option value = "49">Chester City</option>
+                     <option value = "06">Chester Heights Borough</option>
+                     <option value = "07">Chester Township</option>
+                     <option value = "08">Lower Chichester Township</option>
+                     <option value = "09">Upper Chichester Township</option>
+                     <option value = "10">Clifton Heights Borough</option>
+                     <option value = "11">Collingdale Borough</option>
+                     <option value = "12">Colwyn Borough</option>
+                     <option value = "13">Concord Township</option>
+                     <option value = "14">Darby Borough</option>
+                     <option value = "15">Darby Township</option>
+                     <option value = "16">Upper Darby Township</option>
+                     <option value = "17">East Lansdowne Borough</option>
+                     <option value = "18">Eddystone Borough</option>
+                     <option value = "19">Edgmont Township</option>
+                     <option value = "20">Folcroft Borough</option>
+                     <option value = "21">Glenolden Borough</option>
+                     <option value = "22">Haverford Township</option>
+                     <option value = "23" selected="selected">Lansdowne Borough</option>
+                     <option value = "17">East Lansdowne Borough</option>
+                     <option value = "08">Lower Chichester Township</option>
+                     <option value = "24">Marcus Hook Borough</option>
+                     <option value = "25">Marple Township</option>
+                     <option value = "26">Media Borough</option>
+                     <option value = "27">Middletown Township</option>
+                     <option value = "28">Millbourne Borough</option>
+                     <option value = "29">Morton Borough</option>
+                     <option value = "34">Nether Providence Township</option>
+                     <option value = "30">Newtown Township</option>
+                     <option value = "31">Norwood Borough</option>
+                     <option value = "32">Parkside Borough</option>
+                     <option value = "33">Prospect Park Borough</option>
+                     <option value = "34">Nether Providence Township</option>
+                     <option value = "35">Upper Providence Township</option>
+                     <option value = "36">Radnor Township</option>
+                     <option value = "37">Ridley Park Borough</option>
+                     <option value = "38">Ridley Township</option>
+                     <option value = "39">Rose Valley Borough</option>
+                     <option value = "40">Rutledge Borough</option>
+                     <option value = "41">Sharon Hill Borough</option>
+                     <option value = "42">Springfield Township</option>
+                     <option value = "43">Swarthmore Borough</option>
+                     <option value = "44">Thornbury Township</option>
+                     <option value = "45">Tinicum Township</option>
+                     <option value = "46">Trainer Borough</option>
+                     <option value = "47">Upland Borough</option>
+                     <option value = "09">Upper Chichester Township</option>
+                     <option value = "16">Upper Darby Township</option>
+                     <option value = "35">Upper Providence Township</option>
+                     <option value = "48">Yeadon Borough</option>
+                  </select>
+	        </td>
+		<td  align='left'>
+			<input id='indist' class="white" type="submit" name="realdistaddress">
+		</td>
+	</tr>
+	<tr>
+		<td  align='right'><FONT color='mediumblue' size=3><B>
+			<i>Optional House Number</i>
+		</B></FONT></td>
+		<td  align='left'>
+			<input type='text' name='HNumber' value='' maxlength='4' size='10'  onkeydown="return killenter(event);">
+	        </td>
+	</tr>
+	<tr>
+		<td  align='right'>
+			<I><font size=2>Optionally enter 1-4 digit house number above<br>before selecting street</i></font>
+	        </td>
+		<td  align='left'>
+                  <select id='selstreet' name="Street" onchange="streetsgo('instreet');" onfocus="streetslist('selstreet');">
+                     <option value = 'a' selected='selected'>---Select Street---</option>
+                     <option value = 'ALBEMARLE AVE'>ALBEMARLE AVE</option>
+                     <option value = 'E ALBEMARLE AVE'>E ALBEMARLE AVE</option>
+                     <option value = 'W ALBEMARLE AVE'>W ALBEMARLE AVE</option>
+                     <option value = 'ARDMORE AVE'>ARDMORE AVE</option>
+                     <option value = 'AUSTIN AVE'>AUSTIN AVE</option>
+                     <option value = 'BALFOUR CIR'>BALFOUR CIR</option>
+                     <option value = 'BALTIMORE AVE'>BALTIMORE AVE</option>
+                     <option value = 'E BALTIMORE AVE'>E BALTIMORE AVE</option>
+                     <option value = 'W BALTIMORE AVE'>W BALTIMORE AVE</option>
+                     <option value = 'BARKER AVE'>BARKER AVE</option>
+                     <option value = 'BARTRAM AVE'>BARTRAM AVE</option>
+                     <option value = 'BELMONT AVE'>BELMONT AVE</option>
+                     <option value = 'BERKLEY AVE'>BERKLEY AVE</option>
+                     <option value = 'W BERKLEY AVE'>W BERKLEY AVE</option>
+                     <option value = 'BLACKBURN AVE'>BLACKBURN AVE</option>
+                     <option value = 'BRADDOCK AVE'>BRADDOCK AVE</option>
+                     <option value = 'BRYN MAWR AVE'>BRYN MAWR AVE</option>
+                     <option value = 'BURMONT RD'>BURMONT RD</option>
+                     <option value = 'CEDAR AVE'>CEDAR AVE</option>
+                     <option value = 'CLOVER AVE'>CLOVER AVE</option>
+                     <option value = 'CONGRESS AVE'>CONGRESS AVE</option>
+                     <option value = 'COOPER AVE'>COOPER AVE</option>
+                     <option value = 'CRAWFORD AVE'>CRAWFORD AVE</option>
+                     <option value = 'DAVID LN'>DAVID LN</option>
+                     <option value = 'DEFOREST RD'>DEFOREST RD</option>
+                     <option value = 'DREXEL AVE'>DREXEL AVE</option>
+                     <option value = 'W DREXEL AVE'>W DREXEL AVE</option>
+                     <option value = 'DUDLEY AVE'>DUDLEY AVE</option>
+                     <option value = 'ELBERON AVE'>ELBERON AVE</option>
+                     <option value = 'ELDON AVE'>ELDON AVE</option>
+                     <option value = 'E ESSEX AVE'>E ESSEX AVE</option>
+                     <option value = 'W ESSEX AVE'>W ESSEX AVE</option>
+                     <option value = 'FAIRVIEW AVE'>FAIRVIEW AVE</option>
+                     <option value = 'FLORENCE AVE'>FLORENCE AVE</option>
+                     <option value = 'GLADSTONE RD'>GLADSTONE RD</option>
+                     <option value = 'GLENTAY RD'>GLENTAY RD</option>
+                     <option value = 'GREEN AVE'>GREEN AVE</option>
+                     <option value = 'E GREENWOOD AVE'>E GREENWOOD AVE</option>
+                     <option value = 'W GREENWOOD AVE'>W GREENWOOD AVE</option>
+                     <option value = 'HANSELL RD'>HANSELL RD</option>
+                     <option value = 'HIGHLAND AVE'>HIGHLAND AVE</option>
+                     <option value = 'N HIGHLAND AVE'>N HIGHLAND AVE</option>
+                     <option value = 'S HIGHLAND AVE'>S HIGHLAND AVE</option>
+                     <option value = 'JACKSON AVE'>JACKSON AVE</option>
+                     <option value = 'KERR PL'>KERR PL</option>
+                     <option value = 'E LACROSSE AVE'>E LACROSSE AVE</option>
+                     <option value = 'W LACROSSE AVE'>W LACROSSE AVE</option>
+                     <option value = 'LANSDOWNE AVE'>LANSDOWNE AVE</option>
+                     <option value = 'N LANSDOWNE AVE'>N LANSDOWNE AVE</option>
+                     <option value = 'S LANSDOWNE AVE'>S LANSDOWNE AVE</option>
+                     <option value = 'LANSDOWNE CT'>LANSDOWNE CT</option>
+                     <option value = 'S LANSDOWNE CT'>S LANSDOWNE CT</option>
+                     <option value = 'S LANSDOWNE REAR 2'>S LANSDOWNE REAR 2</option>
+                     <option value = 'LARKIN RD'>LARKIN RD</option>
+                     <option value = 'LEGION TERR'>LEGION TERR</option>
+                     <option value = 'LINDEN AVE'>LINDEN AVE</option>
+                     <option value = 'MADISON RD'>MADISON RD</option>
+                     <option value = 'MANSFIELD AVE'>MANSFIELD AVE</option>
+                     <option value = 'N MANSFIELD AVE'>N MANSFIELD AVE</option>
+                     <option value = 'S MANSFIELD AVE'>S MANSFIELD AVE</option>
+                     <option value = 'MAPLE AVE'>MAPLE AVE</option>
+                     <option value = 'N MAPLE AVE'>N MAPLE AVE</option>
+                     <option value = 'S MAPLE AVE'>S MAPLE AVE</option>
+                     <option value = 'MARLYN AVE'>MARLYN AVE</option>
+                     <option value = 'E MARSHALL RD'>E MARSHALL RD</option>
+                     <option value = 'W MARSHALL RD'>W MARSHALL RD</option>
+                     <option value = 'MARTIN DR'>MARTIN DR</option>
+                     <option value = 'MCKINLEY AVE'>MCKINLEY AVE</option>
+                     <option value = 'MIDWAY AVE'>MIDWAY AVE</option>
+                     <option value = 'NYACK AVE'>NYACK AVE</option>
+                     <option value = 'OWEN AVE'>OWEN AVE</option>
+                     <option value = 'PENNOCK TERR'>PENNOCK TERR</option>
+                     <option value = 'E PLUMSTEAD AVE'>E PLUMSTEAD AVE</option>
+                     <option value = 'W PLUMSTEAD AVE'>W PLUMSTEAD AVE</option>
+                     <option value = 'POWELTON AVE'>POWELTON AVE</option>
+                     <option value = 'PRICE AVE'>PRICE AVE</option>
+                     <option value = 'RICHARDS AVE'>RICHARDS AVE</option>
+                     <option value = 'N RIGBY AVE'>N RIGBY AVE</option>
+                     <option value = 'S RIGBY AVE'>S RIGBY AVE</option>
+                     <option value = 'ROSE LN'>ROSE LN</option>
+                     <option value = 'RUNNEMEDE AVE'>RUNNEMEDE AVE</option>
+                     <option value = 'SAYERS AVE'>SAYERS AVE</option>
+                     <option value = 'SCHAPPET TERR'>SCHAPPET TERR</option>
+                     <option value = 'SCOTTDALE RD'>SCOTTDALE RD</option>
+                     <option value = 'SHADELAND AVE'>SHADELAND AVE</option>
+                     <option value = 'E STEWART AVE'>E STEWART AVE</option>
+                     <option value = 'W STEWART AVE'>W STEWART AVE</option>
+                     <option value = 'E STRATFORD AVE'>E STRATFORD AVE</option>
+                     <option value = 'W STRATFORD AVE'>W STRATFORD AVE</option>
+                     <option value = 'THE KNOLL RD'>THE KNOLL RD</option>
+                     <option value = 'N UNION AVE'>N UNION AVE</option>
+                     <option value = 'S UNION AVE'>S UNION AVE</option>
+                     <option value = 'VIOLET LN'>VIOLET LN</option>
+                     <option value = 'WABASH AVE'>WABASH AVE</option>
+                     <option value = 'WALSH RD'>WALSH RD</option>
+                     <option value = 'WALTON PL'>WALTON PL</option>
+                     <option value = 'WAYNE AVE'>WAYNE AVE</option>
+                     <option value = 'WILLOWBROOK AVE'>WILLOWBROOK AVE</option>
+                     <option value = 'WINDERMERE AVE'>WINDERMERE AVE</option>
+                     <option value = 'E WINDERMERE TERR'>E WINDERMERE TERR</option>
+                     <option value = 'W WINDERMERE TERR'>W WINDERMERE TERR</option>
+                     <option value = 'WINDSOR AVE'>WINDSOR AVE</option>
+                     <option value = 'WOODLAND AVE'>WOODLAND AVE</option>
+                     <option value = 'N WYCOMBE AVE'>N WYCOMBE AVE</option>
+                     <option value = 'S WYCOMBE AVE'>S WYCOMBE AVE</option>
+                  </select>
+	        </td>
+			<input id='instreet' class="white" type="submit" name="realaddress">
+		</td>
+	</tr>
+</table>
+<br>
+<table border='0' cellspacing='0' cellpadding='4'>
+	<tr>
+		<td align='left'><FONT color='mediumblue' size=3><B>
+			OR --> Search by FOLIO Number for a detail listing of the property 
+		</B></FONT></td>
+		<td  align='left'>
+			<input type='text' name='Folio' value='' maxlength='14' size='18' onBlur="setgo()"  onkeydown="return killenter(event);">
+		</td>
+		<td  align='left'>
+			<input title='Submit Folio Search Request' type='image' name='realfolio' border='0' src='go.gif' alt='Submit Folio Search Request'>
+		</td>
+	</tr>
+     <tr><td align='left' colspan=3>
+         <I><font size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please type the complete 11-digit folio number,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;including dashes.&nbsp;&nbsp;Examples: '01-23-45678-90', '89-67-34534-67'.</I></font>
+     </td></tr>
+</table>
+<br>
+<table border='0' cellspacing='0' cellpadding='4'>
+	<tr>
+		<td align='left'><FONT color='mediumblue' size=3><B>
+			OR --> Search by a MAP Number for a list of properties
+		</B></FONT></td>
+		<td  align='left'>
+			<input type='text' name='Map' value='' maxlength='14' size='18' onBlur="setgo()"  onkeydown="return killenter(event);">
+		</td>
+		<td  align='left'>
+			<input title='Submit Map Search Request' type='image' name='realmap' border='0' src='go.gif' alt='Submit Map Search Request'>
+		</td>
+	</tr>
+     <tr><td align='left' colspan=3>
+         <I><font size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please type the complete 11-digit map number,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;including spaces and dashes.&nbsp;&nbsp;Examples: '01-23x-456-789', '89-5xx-0xx-234' Where x is a space.</I></font>
+     </td></tr>
+</table>
+<HR WIDTH=735><TABLE border=0 width=735><TR><TD class="justpar9"><BLOCKQUOTE>Please take <b>NOTE</b> of the following system backup schedule, when the <b>Real Estate and Tax Records</b> system will be <b>unavailable</b>.</BLOCKQUOTE></td><tr><td align='center'><TABLE><TR><TD align='left' class="style19">Real Estate and Tax Records</td><TD align='left' class="style18">:&nbsp;&nbsp;Tuesday</td><TD align='left' class="style18">6:00 pm - 7:00 pm</td></tr><tr></TR></TABLE></td</tr></TABLE></center>
+<input type='hidden' name='UAYN' value='Y'>
+</form>
+
+
+
+
+<div id="delcofooter" name="delcofooter">
+
+<CENTER>
+<HR WIDTH=735>
+<A href=
+publicaccess.asp
+>Public Access Home Page</A><br>
+
+</center>
+</div>
+
+<center>
+<br><a class='cpyrgt' href='http://www.co.delaware.pa.us/disclaimer.html'>© 2014 County of Delaware<font class="cpyrgtp">/Disclaimer</font></a>
+
+
+</center>
+</BODY>
+
+
+
+</HTML>
+
+
+
+
+
+
+

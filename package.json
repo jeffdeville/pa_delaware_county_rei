@@ -1,0 +1,21 @@
+{
+  "name": "delaware-county-scrape",
+  "version": "1.0.0",
+  "description": "Scrape website info from delaware county",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Deville",
+  "license": "Closed Source",
+  "dependencies": {
+    "chai": "^1.10.0",
+    "cheerio": "^0.18.0",
+    "lodash": "^2.4.1",
+    "mocha": "^2.1.0",
+    "mongodb": "^1.4.26",
+    "mongoose": "^3.8.21",
+    "request": "^2.51.0",
+    "zmq": "^2.8.0"
+  }
+}
