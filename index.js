@@ -29,6 +29,9 @@ pageSub.on("message", function(pageURL){
       throw err;
     }
     let newLinks = delco.parse(pageURL, body) || []
+
+    //
+
     _.each(newLinks, pageHrefPublisher.send)
   })
 })
