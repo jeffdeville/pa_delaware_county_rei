@@ -11,19 +11,22 @@ const
   _ = require('lodash'),
   DOMAIN = "http://w01.co.delaware.pa.us/pa/",
   BASE_URL = DOMAIN + "publicaccess.asp",
-  Set = require('collections/set'),
-  allUrls = new Set();
+  Set = require('collections/set');
+
+var _allUrls = new Set();
 
 module.exports = {
   startURLs: function(){
     return [BASE_URL + "?municipality=21&realdistaddress=Submit&HNumber=&Street=ACHILLE+RD&Folio=&Map=&UAYN=Y&start=true"]
   },
   parse: function(URL, body) {
-    allUrls.add(URL)
+    _allUrls.add(URL)
     URL = url.parse(URL, true)
     let $ = cheerio.load(body)
     return choosePageParser(URL)(URL, $)
   },
+  allUrls: function(){ return _allUrls },
+  setAllUrls: function(urls){ _allUrls = new Set(urls); }
 }
 
 function choosePageParser(URL) {
@@ -41,7 +44,7 @@ function choosePageParser(URL) {
 
 function uniqueUrls(urls){
   return _.select(urls, function(link){
-    return !allUrls.contains(link)
+    return !_allUrls.contains(link)
   })
 }
 
@@ -63,7 +66,6 @@ function parseStreets(URL, $){
 }
 
 function parseAddresses(URL, $){
-  debugger
   // Can't grab the rows directly, because there are sub-tables
   let rows = $("table[width='775']").children()
   var propertyUrls = _.chain(rows)
@@ -76,8 +78,7 @@ function parseAddresses(URL, $){
     })
     .map(function(row){ return DOMAIN + $($("a", row)[0]).attr("href") }) // create link
     .select(function(link){
-      console.log("unique check", link)
-      return !allUrls.contains(link) // Only keep the unique urls
+      return !_allUrls.contains(link) // Only keep the unique urls
     })
     .value();
 
