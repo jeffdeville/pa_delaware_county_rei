@@ -5,7 +5,8 @@ const
   _ = require('lodash'),
   fs = require('fs'),
   cheerio = require('cheerio'),
-  assert = require('assert')
+  assert = require('assert'),
+  replay = require('replay');
 
 describe('get borough urls from start page', function(){
   it('should load the html body, and return links to each borough', function(){
@@ -44,4 +45,38 @@ describe('get addresses from street page', function(){
     addressUrls = delco.parse("http://w01.co.delaware.pa.us/pa/publicaccess.asp?realaddress=Submit&municipality=22&HNumber=&Street=LORAINE+ST&Folio=&Map=&UAYN=Y", body)
     assert.equal(addressUrls.length, 0)
   })
+})
+
+describe('get details from address page', function(){
+  // The parser needs to kick out events that let addresses be saved, or just
+  // perform the saves itself. But the question will simply be how to override
+  // the database storage. Or do I bother to do so at all? No, I think in this
+  // case, I should start by just testing the scraping by calling a different
+  // method, and then I can extract it later. There should be an initialize
+  // section that provides the persistence strategy actually:
+  // delco.initialize(saveToDbFunc)
+
+  var property
+  before(function(){
+    let body = fs.readFileSync("test/address.html")
+    property = delco.parseAddress(body)
+  })
+
+  it('should load the street address', function(){
+    assert.equal(property.address, "701 Loraine St")
+  })
+
+  it("should load the owner's address", function(){
+    assert.equal(property.owners.address, "701 Lorraine St Ardmore          , PA 19003")
+  })
+
+
+  // it("should load any delinquent info")
+  // it("should load any hearing info")
+
+})
+
+describe('evaluate whether the owner lives in the residence or not', function(){
+  it("should match if they are the same")
+  it("should not match if they are different")
 })
