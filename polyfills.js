@@ -12,3 +12,10 @@ if (!String.prototype.endsWith) {
     }
   });
 }
+
+Object.defineProperty(String.prototype, 'strip', {
+  value: function(){
+    var subjectString = this.toString();
+    return subjectString.replace(/^\s+/,"").replace(/\s+$/, "")
+  }
+})

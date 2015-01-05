@@ -126,7 +126,7 @@ function isAddressUrl(URL) {
 }
 
 function extractStreetAddress(input){
-  let spaces = strip(input).split(MULTIPLE_SPACES)
+  let spaces = input.strip().split(MULTIPLE_SPACES)
 
   if(spaces.length !== 2) {
     throw "Can not parse: " + input + "It was split into:" + spaces
@@ -138,7 +138,7 @@ function extractStreetAddress(input){
 
 function extractOwnerInfo(input){
   let strippedLines = _.map(input.split("\r\n"), function(line){
-    return strip(line)
+    return line.strip()
   })
   let propertyInfo = {
     name: "",
@@ -146,18 +146,15 @@ function extractOwnerInfo(input){
   }
   // Now, I need to go through the lines, and parse them intelligently
   _.each(strippedLines, function(line){
-    debugger
     if(propertyInfo.name === "" || propertyInfo.name.endsWith("&")) {
       propertyInfo.name += " " + line
     } else {
       propertyInfo.address += " " + line
     }
   })
-  propertyInfo.address = strip(propertyInfo.address)
+  propertyInfo.address = propertyInfo.address.strip()
   return propertyInfo
 }
 
 
-function strip(input){
-  return input.replace(/^\s+/,"").replace(/\s+$/, "")
-}
+
