@@ -6,15 +6,20 @@ const
   cheerio = require('cheerio'),
   url = require('url'),
   _ = require('lodash'),
+  Set = require('collections/set'),
   DOMAIN = "http://w01.co.delaware.pa.us/pa/",
-  BASE_URL = DOMAIN + "publicaccess.asp",
-  START_URL = BASE_URL + "?municipality=21&realdistaddress=Submit&HNumber=&Street=ACHILLE+RD&Folio=&Map=&UAYN=Y&start=true",
+  BASE_URL = "http://w01.co.delaware.pa.us/pa/publicaccess.asp",
+  START_URL = "http://w01.co.delaware.pa.us/pa/publicaccess.asp?municipality=21&realdistaddress=Submit&HNumber=&Street=ACHILLE+RD&Folio=&Map=&UAYN=Y&start=true",
+
   MULTIPLE_SPACES = /\s{2,}/;
 
+var _visitedUrls = new Set();
+
 module.exports = {
-  init: function(saveFunc){
-    _save = saveFunc;
+  init: function(visitedUrls){
+    _visitedUrls = new Set(visitedUrls);
   },
+
   parseBoroughs: function (body){
     let $ = cheerio.load(body)
     let municipalities = $("select[name=municipality] option")
@@ -34,28 +39,47 @@ module.exports = {
   },
 
   parseAddresses: function(body){
+    let getStreetAddress = function(row){
+      return $($("td", row)[0]).text()
+    }
+    let getStreetName = function(row){
+      return getStreetAddress(row).strip().replace(/\d+/, '').strip()
+    }
+    // If not all of the addresses are for the street in question, then this is the last page
+    let isLastPage = function(urls, rows) { return urls.length != rows.length }
+
     let $ = cheerio.load(body)
     // Can't grab the rows directly, because there are sub-tables
     let rows = $("table[width='775']").children()
-    var propertyUrls = _.chain(rows)
+    var propertyRows = _.chain(rows)
       .tail() // Skip the title row of the table
       .map(function(row){ return $(row) })  // just simplify the rest of the code
       .select(function(row, index) {
         // Only addresses w/ numbers are actual homes. Others are just land
-        let address = $($("td", row)[0]).text()
+        let address = getStreetAddress(row)
+        // let address = $($("td", row)[0]).text()
         return address.match(/\d+\s/) !== null
+      })
+      .value()
+
+    let streetName = getStreetName(propertyRows[0])
+
+    let propertyUrls = _.chain(propertyRows)
+      .select(function(row) {
+        return streetName === getStreetName(row)
       })
       .map(function(row){ return DOMAIN + $($("a", row)[0]).attr("href") }) // create link
       .value();
 
-    if (propertyUrls.length > 0) {
-      propertyUrls.push(absoluteLink($($("#searchfooter a")[0])))
-    }
+    let nextPageUrl = isLastPage(propertyUrls, propertyRows) ? null : absoluteLink($($("#searchfooter a")[0]))
 
-    return propertyUrls
+    return {
+      propertyUrls: propertyUrls,
+      nextPageUrl: nextPageUrl
+    }
   },
 
-  parseAddress: function(body){
+  parseProperty: function(body){
     let $ = cheerio.load(body)
     let crappyAddress = $($("th.violet")[0]).next().text()
     let ownerAddress = $("td.ltgreen").text()
@@ -64,6 +88,8 @@ module.exports = {
       owners: extractOwnerInfo(ownerAddress)
     }
   },
+
+
 }
 
 

@@ -7,7 +7,7 @@ const
   cheerio = require('cheerio'),
   assert = require('assert');
 
-describe('get borough urls from start page', function(){
+describe('parseBoroughs', function(){
   it('should load the html body, and return links to each borough', function(){
     let body = fs.readFileSync("test/boroughs.html")
     let boroughUrls = delco.parseBoroughs(body)
@@ -15,7 +15,7 @@ describe('get borough urls from start page', function(){
   })
 })
 
-describe('get street urls from borough page', function(){
+describe('parseStreets', function(){
   it('should load the html body, and return links to each street', function(){
     let body = fs.readFileSync("test/streets.html")
     let streetUrls = delco.parseStreets(body)
@@ -24,27 +24,57 @@ describe('get street urls from borough page', function(){
   })
 })
 
-describe('get addresses from street page', function(){
-  let addressUrls = []
+describe('parseAddresses', function(){
+  let propertyUrls = []
+  let nextPageUrl = ""
   let body = ""
 
   before(function(){
     body = fs.readFileSync("test/addresses.html")
-    addressUrls = delco.parseAddresses(body)
+    let resp = delco.parseAddresses(body)
+    propertyUrls = resp.propertyUrls
+    nextPageUrl = resp.nextPageUrl
   })
 
-  it('should load the html body, and return links to each address', function(){
-    assert.equal(addressUrls.length, 11)
-    assert.equal(addressUrls[0], "http://w01.co.delaware.pa.us/pa/publicaccess.asp?UAYN=Y&MyAction=RealFolioSearch&Folio=22-06-01379-00")
-    assert.equal(_.last(addressUrls), "http://w01.co.delaware.pa.us/pa/publicaccess.asp?UAYN=Y&MyAction=RealAddressSearch&Municipality=22&HNumber=%20%20%20%20&Direction=&Street=LORAINE%20ST&Page=1")
+  it('should return links to each address, as well as the next page', function(){
+    assert.equal(propertyUrls.length, 10)
+    assert.equal(propertyUrls[0], "http://w01.co.delaware.pa.us/pa/publicaccess.asp?UAYN=Y&MyAction=RealFolioSearch&Folio=22-06-01379-00")
+  })
+
+  it('should return a link to the next page', function(){
+    assert.equal(nextPageUrl, "http://w01.co.delaware.pa.us/pa/publicaccess.asp?UAYN=Y&MyAction=RealAddressSearch&Municipality=22&HNumber=%20%20%20%20&Direction=&Street=LORAINE%20ST&Page=1")
   })
 })
 
-describe('get details from address page', function(){
+describe('parseAddresseswhen the results move to a different street', function(){
+  let propertyUrls = []
+  let nextPageUrl = ""
+  let body = ""
+
+  before(function(){
+    body = fs.readFileSync("test/addresses_change_street.html")
+    let resp = delco.parseAddresses(body)
+    propertyUrls = resp.propertyUrls
+    nextPageUrl = resp.nextPageUrl
+  })
+
+  // The site doesn't filter correctly, so even if you request street 'A', you'll
+  // page to street 'B' and so on. Since those will be captured separately, we want
+  // to make sure we don't send dupes, and stop going to the next page
+  it('should only return the links to the first street name on page', function(){
+    assert.equal(propertyUrls.length, 2)
+  })
+
+  it('should not return a nextPageUrl', function(){
+    assert.equal(nextPageUrl, null)
+  })
+})
+
+describe('parseProperty', function(){
   var property
   before(function(){
     let body = fs.readFileSync("test/address.html")
-    property = delco.parseAddress(body)
+    property = delco.parseProperty(body)
   })
 
   it('should load the street address', function(){
