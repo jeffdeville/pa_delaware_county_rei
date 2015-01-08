@@ -5,19 +5,20 @@
 // for unique urls, and then quit if I hit a page where none of the urls is
 // unique
 
+require('./polyfills')
+
 const
   cheerio = require('cheerio'),
   url = require('url'),
   _ = require('lodash'),
   DOMAIN = "http://w01.co.delaware.pa.us/pa/",
   BASE_URL = DOMAIN + "publicaccess.asp",
+  // http://w01.co.delaware.pa.us/pa/publicaccess.asp
   Set = require('collections/set'),
   MULTIPLE_SPACES = /\s{2,}/;
-require('./polyfills')
 
 var _allUrls = new Set();
 var _save; // function(home_info){}
-
 
 module.exports = {
   init: function(saveFunc){
@@ -50,6 +51,7 @@ module.exports = {
   setAllUrls: function(urls){ _allUrls = new Set(urls); }
 }
 
+// Kill this function
 function choosePageParser(URL) {
   if(isBoroughUrl(URL)){
     return parseBoroughs
@@ -153,7 +155,18 @@ function extractOwnerInfo(input){
     }
   })
   propertyInfo.address = propertyInfo.address.strip()
+  dstk.street2coordinates(propertyInfo.address, function(err, data){
+    console.log(data)
+  })
   return propertyInfo
+}
+
+function pausecomp(millis)
+ {
+  var date = new Date();
+  var curDate = null;
+  do { curDate = new Date(); }
+  while(curDate-date < millis);
 }
 
 

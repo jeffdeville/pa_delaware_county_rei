@@ -5,8 +5,8 @@ const
   _ = require('lodash'),
   fs = require('fs'),
   cheerio = require('cheerio'),
-  assert = require('assert'),
-  replay = require('replay');
+  assert = require('assert');
+  // replay = require('replay');
 
 describe('get borough urls from start page', function(){
   it('should load the html body, and return links to each borough', function(){
@@ -69,7 +69,6 @@ describe('get details from address page', function(){
   it("should load the owner's address", function(){
     assert.equal(property.owners.address, "701 Lorraine St Ardmore          , PA 19003")
   })
-
 
   // it("should load any delinquent info")
   // it("should load any hearing info")
