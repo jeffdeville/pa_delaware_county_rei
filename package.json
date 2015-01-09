@@ -15,5 +15,14 @@
   "devDependencies": {
     "mocha": "^2.1.0",
     "chai": "^1.10.0"
+  },
+  "node-red": {
+    "nodes": {
+      "parse-boroughs":  "nodes/scrapers.js",
+      "parse-streets":   "nodes/scrapers.js",
+      "parse-addresses": "nodes/scrapers.js",
+      "parse-property":  "nodes/scrapers.js"
+    }
   }
+
 }

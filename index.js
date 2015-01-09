@@ -6,20 +6,13 @@ const
   cheerio = require('cheerio'),
   url = require('url'),
   _ = require('lodash'),
-  Set = require('collections/set'),
   DOMAIN = "http://w01.co.delaware.pa.us/pa/",
   BASE_URL = "http://w01.co.delaware.pa.us/pa/publicaccess.asp",
   START_URL = "http://w01.co.delaware.pa.us/pa/publicaccess.asp?municipality=21&realdistaddress=Submit&HNumber=&Street=ACHILLE+RD&Folio=&Map=&UAYN=Y&start=true",
 
   MULTIPLE_SPACES = /\s{2,}/;
 
-var _visitedUrls = new Set();
-
 module.exports = {
-  init: function(visitedUrls){
-    _visitedUrls = new Set(visitedUrls);
-  },
-
   parseBoroughs: function (body){
     let $ = cheerio.load(body)
     let municipalities = $("select[name=municipality] option")
@@ -88,10 +81,7 @@ module.exports = {
       owners: extractOwnerInfo(ownerAddress)
     }
   },
-
-
 }
-
 
 function absoluteLink(relativeUrlAnchor){
   return DOMAIN + relativeUrlAnchor.attr('href')

@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  RED.nodes.registerType('parse-boroughs',{
+    category: "function",
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.png",
+    color: "#3FADB5,
+    label: "Boroughs",
+  });
+</script>
+
+<script type="text/x-red" data-template-name="parse-boroughs">
+  <div class="form-row">
+    <label for="node-input-body"><i class="icon-tag"></i></label>
+    <textarea id="node-input-body" placeholder="Html to scrape"></textarea>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="parse-boroughs">
+  <p>Scrape the boroughs from the html, and returns links to get the streets in msg.payload</p>
+</script>
+
